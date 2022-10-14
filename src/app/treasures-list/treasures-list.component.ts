@@ -1,4 +1,4 @@
-import { Input, Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { TreasureLocation } from "../treasure-location";
 
@@ -12,6 +12,8 @@ export class TreasuresListComponent implements OnInit {
 
   @Input() locationList: TreasureLocation[] = [];
   foundTreasures: TreasureLocation[] = [];
+
+  @Output() selectLocationEvent = new EventEmitter<TreasureLocation>();
 
   constructor() { }
 
@@ -29,8 +31,11 @@ export class TreasuresListComponent implements OnInit {
           (location.city
             .toLowerCase()
             .includes(searchText.toLowerCase())) 
-        }
-      
+        }      
       );
+  }
+
+  selectLocation(location: TreasureLocation): void {
+    this.selectLocationEvent.emit(location);
   }
 }

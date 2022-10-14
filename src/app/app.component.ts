@@ -14,4 +14,10 @@ export class AppComponent {
 
   treasureLocationList: TreasureLocation[] = treasureLocationList;
 
+  selectedLocation?: TreasureLocation;
+
+  updateSelectedLocation(location: TreasureLocation): void {
+    this.selectedLocation = location;
+  }
+
 }

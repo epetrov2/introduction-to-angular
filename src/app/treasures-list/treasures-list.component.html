@@ -3,5 +3,5 @@
 <button (click)="searchTreasureLocations(search.value)">Search</button>
 
 <article *ngFor="let location of foundTreasures">
-    <p>{{location.name}}</p>
+    <p (click)="selectLocation(location)">{{location.name}}</p>    
 </article>

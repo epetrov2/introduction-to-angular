@@ -1,8 +1,18 @@
 <main>
     <header><img src="../assets/2202_w020_n001_1266_gameicons_p15_1266 chest.png" alt="treasures">Treasures</header>
     <section>
-        <app-treasures-list [locationList]="treasureLocationList"></app-treasures-list>
+        <app-treasures-list 
+        [locationList]="treasureLocationList"
+        (selectLocationEvent)="updateSelectedLocation($event)"></app-treasures-list>
     </section>
+    <article *ngIf="selectedLocation">
+        <img [src]="selectedLocation.photo">
+        <h2>{{selectedLocation.name}}</h2>
+        <p>{{selectedLocation.availableCoins}}</p>
+        <p>{{selectedLocation.city}}, {{selectedLocation.state}}</p>
+        <p>{{selectedLocation.cursed ? "Treasure cursed" : ""}}</p>
+        <p>{{selectedLocation.diamonds ? "There is a diamonds inside" : ""}}</p>
+    </article>
 </main>
 <footer>
     <small>Used images <a href="http://www.freepik.com">Designed by upklyak / Freepik</a></small>
