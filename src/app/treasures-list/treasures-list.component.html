@@ -2,6 +2,7 @@
 <input id="location-search" #search placeholder="Ex: Chicago">
 <button (click)="searchTreasureLocations(search.value)">Search</button>
 
-<article *ngFor="let location of foundTreasures">
-    <p (click)="selectLocation(location)">{{location.name}}</p>    
+<article *ngFor="let location of foundTreasures"  (click)="selectLocation(location)">
+    <img [src]="location.photo" [alt]="location.name">
+    <p>{{location.name}}</p>    
 </article>
