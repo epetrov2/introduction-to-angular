@@ -47,3 +47,10 @@ article > p:nth-of-type(2) {
     font-size: 30pt;
     margin-bottom: 15px;
 }
+
+footer {
+    margin-top: 100px;
+    border-top: solid 0.5px rgb(223, 223, 223);
+    padding-top: 10px;
+    padding-left: 10px;
+}
