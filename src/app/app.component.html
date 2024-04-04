@@ -3,16 +3,18 @@
     <section>
         <app-treasures-list 
         [locationList]="treasureLocationList"
-        (selectLocationEvent)="updateSelectedLocation($event)"></app-treasures-list>
+        (selectLocationEvent)="updateSelectedLocation($event)">
+    </app-treasures-list>
+        <article *ngIf="selectedLocation">
+            <img [src]="selectedLocation.photo">
+            <h2>{{selectedLocation.name}}</h2>
+            <p>{{selectedLocation.availableCoins}}</p>
+            <p>{{selectedLocation.city}}, {{selectedLocation.state}}</p>
+            <p>{{selectedLocation.cursed ? "Treasure cursed" : ""}}</p>
+            <p>{{selectedLocation.diamonds ? "There is a diamonds inside" : ""}}</p>
+        </article>
     </section>
-    <article *ngIf="selectedLocation">
-        <img [src]="selectedLocation.photo">
-        <h2>{{selectedLocation.name}}</h2>
-        <p>{{selectedLocation.availableCoins}}</p>
-        <p>{{selectedLocation.city}}, {{selectedLocation.state}}</p>
-        <p>{{selectedLocation.cursed ? "Treasure cursed" : ""}}</p>
-        <p>{{selectedLocation.diamonds ? "There is a diamonds inside" : ""}}</p>
-    </article>
+
 </main>
 <footer>
     <small>Used images <a href="http://www.freepik.com">Designed by upklyak / Freepik</a></small>
